@@ -1,7 +1,7 @@
 import '@nordhealth/css';
 
 export default defineNuxtPlugin((nuxtApp) => {
-  nuxtApp.hook('app:mounted', () => {
+  nuxtApp.hook('page:finish', () => {
     import('@nordhealth/components')
  })
 })

@@ -7,6 +7,7 @@ export default defineNuxtConfig({
       isCustomElement: (tag) => tag.startsWith('nord-')
     }
   },
-  // ssr: false,
-  // target: 'static',
+  typescript: {
+    shim: false
+  }
 })

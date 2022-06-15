@@ -1,5 +1,6 @@
 export default defineEventHandler((event) => {
   return {
-    api: 'works'
+    name: 'Nord Design System',
+    url: 'nordhealth.design/nord'
   }
 })

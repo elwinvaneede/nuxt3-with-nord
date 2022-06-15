@@ -1,3 +1,9 @@
+<script lang="ts" setup>
+definePageMeta({
+  title: 'Dashboard'
+})
+</script>
+
 <template>
   <nord-card padding="none" class="mb-m">
     <h2 slot="header">Payouts</h2>
