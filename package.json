@@ -10,7 +10,7 @@
     "nuxt": "3.0.0-rc.3"
   },
   "dependencies": {
-    "@nordhealth/components": "^1.5.0",
-    "@nordhealth/css": "^1.2.1"
+    "@nordhealth/components": "^1.9.1",
+    "@nordhealth/css": "^1.3.4"
   }
 }
