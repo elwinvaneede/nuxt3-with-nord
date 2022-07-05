@@ -11,6 +11,13 @@ And of course, the interface is only visible after hydration is done, and the We
 
 In an ideal situation, I would like to cherry-pick the components I need in the pages/components with a static import (for example `import '@nordhealth/components/lib/Button.js'` or even better with the upcoming Vue wrappers for optimal DX such as typings in templates: `import { Button } from '@nordhealth/vue')`. And then Nuxt does all the bundling & tree-shaking, and Lit's Nuxt integration handles the SSR & hydration of the Web Components.
 
+## Demo
+
+- [Running on Netlify](https://nuxt3-with-nord.netlify.app/) (CDN + Serverless SSR)
+- [Running on Render.com](https://nuxt3-with-nord.onrender.com/) (Node.js server)
+  - Expect a response delay of up to 30 seconds for the first request that comes in after a period of inactivity because I’m on the free plan. 
+- The settings page input values are retrieved through a Nuxt API route.
+
 ## Setup
 
 Make sure to install the dependencies:
