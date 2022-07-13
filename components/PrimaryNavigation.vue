@@ -1,12 +1,3 @@
-<script lang="ts" setup>
-// FIXME: Temp fix until custom NuxtLink's are possible (https://github.com/nuxt/framework/issues/3657)
-function navigate(path: string){
-  return navigateTo({ path })
-}
-
-const route = useRoute();
-</script>
-
 <template>
   <nord-navigation slot="nav">
     <nord-dropdown slot="header" expand>
@@ -69,7 +60,11 @@ const route = useRoute();
       </nord-tooltip>
     </nord-nav-group>
     <nord-nav-group heading="Workspace">
-      <nord-nav-item :active="route.name === 'index' || null" icon="navigation-dashboard" @click="navigate('/')">Dashboard</nord-nav-item>
+      <NuxtLink to="/" custom>
+        <template #default="{ navigate, href, isActive }">
+          <nord-nav-item icon="navigation-dashboard" :href="href" @click="navigate" :active="isActive || null">Dashboard</nord-nav-item>
+        </template>
+      </NuxtLink>
       <nord-nav-item icon="navigation-payments">
         Payments
         <nord-nav-group slot="subnav">
@@ -86,7 +81,11 @@ const route = useRoute();
           <nord-nav-item href="#">Payouts</nord-nav-item>
         </nord-nav-group>
       </nord-nav-item>
-      <nord-nav-item :active="route.name === 'settings' || null" icon="navigation-settings" @click="navigate('/settings')">Settings</nord-nav-item>
+      <NuxtLink to="/settings" custom>
+        <template #default="{ navigate, href, isActive }">
+          <nord-nav-item icon="navigation-settings" :href="href" @click="navigate" :active="isActive || null">Settings</nord-nav-item>
+        </template>
+      </NuxtLink>
     </nord-nav-group>
     <nord-dropdown expand slot="footer">
       <nord-button
