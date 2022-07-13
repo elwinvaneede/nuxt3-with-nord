@@ -1,3 +1,17 @@
+<script setup>
+const route = useRoute()
+
+useHead(() => {
+  return {
+    title: route.meta.title,
+    htmlAttrs: {
+      dir: 'ltr',
+      lang: 'en',
+    }
+  }
+})
+</script>
+
 <template>
   <nord-layout nav-toggle="toggle-button">
     <PrimaryNavigation />
@@ -8,6 +22,20 @@
 </template>
 
 <style>
+  :not(:defined) {
+    visibility: hidden;
+  }
+  
+  body {
+    background-color: var(--n-color-background);
+    color: var(--n-color-text);
+    margin: 0;
+
+    font-size: var(--n-font-size-m);
+    font-family: var(--n-font-family);
+    line-height: var(--n-line-height);
+  }
+
   /* Nav header toggle */
   .nav-lock {
     display: none;
@@ -38,17 +66,17 @@
     visibility: hidden;
   }
   .n-clinic-img {
-    max-width: 200px;
-    width: 100%;
+    max-width: calc(100% - var(--n-space-xl) - var(--n-space-s));
+    width: calc(100% - var(--n-space-xl) - var(--n-space-s));
     opacity: 0;
     visibility: hidden;
     position: absolute;
     margin-left: calc(var(--n-space-s) / 1.2);
     background: transparent;
-    height: calc(var(--n-space-xl) / 1.2);
+    height: 100%;
     background-position: 0 50%;
     background-repeat: no-repeat;
-    background-size: contain;
+    background-size: 60% auto;
   }
   .n-logo-contents,
   .n-clinic-name {
@@ -56,6 +84,18 @@
     justify-content: center;
     align-items: center;
     vertical-align: middle;
+  }
+  .n-clinic-name {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
+    display: inline-block;
+  }
+  .n-clinic-icon {
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: 50% 50%;
   }
 
   /* Responsive settings */
@@ -73,5 +113,10 @@
     .new {
       display: none;
     }
+  }
+
+  [data-action="delete"] span,
+  [data-action="delete"] nord-icon {
+    color: var(--n-color-text-error);
   }
 </style>
